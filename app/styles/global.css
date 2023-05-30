@@ -1,0 +1,10 @@
+/* Override global primary color 100 to red */
+:root {
+    height: 100%;
+    --pf-global--primary-color--100: var(--pf-global--palette--red-400);
+  }
+  
+  /* Override the above override for only the primary button background color */
+  .pf-c-button {
+    --pf-c-button--m-primary--BackgroundColor: var(--pf-global--palette--red-400);
+  }
