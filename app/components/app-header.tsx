@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import React from 'react';
 import {
   Page,
@@ -8,16 +8,17 @@ import {
   MastheadBrand,
   MastheadContent,
   PageSidebar,
+  PageSection,
+  PageSectionVariants,
   PageToggleButton,
   Toolbar,
   ToolbarContent,
   ToolbarItem
 } from '@patternfly/react-core';
-import ZoneIcon from '@patternfly/react-icons/dist/esm/icons/zone-icon';
 import BarsIcon from '@patternfly/react-icons/dist/esm/icons/bars-icon';
+import ZoneIcon from '@patternfly/react-icons/dist/esm/icons/zone-icon';
 
-
-export const AppHeader = ({children}:{children: React.ReactNode}) => {
+export function AppHeader({ children }: { children: any }) {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
 
   const onNavToggle = () => {
@@ -27,15 +28,16 @@ export const AppHeader = ({children}:{children: React.ReactNode}) => {
   const headerToolbar = (
     <Toolbar id="vertical-toolbar">
       <ToolbarContent>
-        <ToolbarItem>header-tools</ToolbarItem>
+        <ToolbarItem>Sign-out</ToolbarItem>
       </ToolbarContent>
     </Toolbar>
   );
 
   const header = (
-    <Masthead>
+    <Masthead backgroundColor='dark'>
       <MastheadToggle>
         <PageToggleButton
+          variant="plain"
           aria-label="Global navigation"
           isNavOpen={isNavOpen}
           onNavToggle={onNavToggle}
@@ -45,8 +47,8 @@ export const AppHeader = ({children}:{children: React.ReactNode}) => {
         </PageToggleButton>
       </MastheadToggle>
       <MastheadMain>
-        <MastheadBrand href="https://kinstree.org" target="_blank">
-          <ZoneIcon/> Kinstree
+        <MastheadBrand href="https://patternfly.org" target="_blank">
+          <ZoneIcon /> Kinstree
         </MastheadBrand>
       </MastheadMain>
       <MastheadContent>{headerToolbar}</MastheadContent>
@@ -57,7 +59,9 @@ export const AppHeader = ({children}:{children: React.ReactNode}) => {
 
   return (
     <Page header={header} sidebar={sidebar}>
-      {children}
+      <PageSection variant={PageSectionVariants.light}>{children}</PageSection>
     </Page>
   );
 };
+
+

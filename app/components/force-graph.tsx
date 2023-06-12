@@ -6,15 +6,14 @@ const NoSSRForceGraph = dynamic(() => import('../../lib/force.module'), {
 });
 
 const myData = {
-    nodes: [{ id: 'a' }, { id: 'b' }, { id: 'c' }],
-    links: [
-      { source: 'a', target: 'b' },
-      { source: 'c', target: 'a' }
-    ]
-  };
-  
-  export default function ForceGraph () {
-    return <NoSSRForceGraph graphData={myData} />;
-  }
-  
-  
+  nodes: [{ id: 'a' }, { id: 'b' }, { id: 'c' }],
+  links: [
+    { source: 'a', target: 'b' },
+    { source: 'c', target: 'a' }
+  ]
+};
+
+export default function ForceGraph() {
+  return <NoSSRForceGraph graphData={myData} />;
+}
+
